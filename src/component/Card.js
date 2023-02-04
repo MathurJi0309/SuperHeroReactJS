@@ -1,26 +1,33 @@
-
-
-
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 function Card(props) {
-    console.log('props',props.path )
         const url=props.path + "." + props.extension
-    console.log("url",url)
-    return (
-        <div className="container" >
-            <div className="card" style={{width:"15rem"}}>
-        <img src={url} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <p className="card-text">{props.name}</p>
-        </div>
-      </div>
-        </div>
+        const navigate = useNavigate();
 
-    // <div className="">
-    //     <h1>
-    //         name:{props.name}
-    //     </h1>
-    // </div>
+    return (
+
+      <>
+      <div className="card mb-3 ml-2" style={{maxWidth:"540px"}} >
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img src={url} className="img-fluid rounded-start" alt="..."  onClick={()=>{props.detail(props.id); navigate("/detail"); toast.info(`here is the ${props.name}`,{
+                        position:"top-right",
+                    })}}/>
+    </div>
+    <div className="col-md-8">
+      <div className="card-body">
+        <h5 className="card-title">{props.name}</h5>
+        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+      </>
+      
+      
     );
   }
   
   export default Card;
+

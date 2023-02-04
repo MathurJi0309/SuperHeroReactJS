@@ -13,4 +13,13 @@ code {
 }
 
 
+.herolist{
+  display: flex;
+  flex-wrap:wrap ;
+  justify-content: center;
+}
+
+.soft{
+  border-radius: 15px;
+}
 
