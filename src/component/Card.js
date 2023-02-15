@@ -10,7 +10,7 @@ function Card(props) {
       <div className="card mb-3 ml-2" style={{maxWidth:"540px"}} >
   <div className="row g-0">
     <div className="col-md-4">
-      <img src={url} className="img-fluid rounded-start" alt="..."  onClick={()=>{props.detail(props.id); navigate("/detail"); toast.info(`here is the ${props.name}`,{
+      <img src={url} className="img-fluid rounded-start hover" alt="..."  onClick={()=>{props.detail(props.id); navigate("/detail"); toast.info(`here is the ${props.name}`,{
                         position:"top-right",
                     })}}/>
     </div>

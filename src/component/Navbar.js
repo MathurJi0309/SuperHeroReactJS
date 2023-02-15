@@ -11,7 +11,7 @@ function Navbar(props) {
       type="search" 
       placeholder="Search you hero" 
       aria-label="Search"
-      onChange={(e)=>props.input(e.target.value)
+      onChange={(e)=>props.handlePageChange(e.target.value)
     }
       />
     </form>
