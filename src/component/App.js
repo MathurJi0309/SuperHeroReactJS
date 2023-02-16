@@ -29,34 +29,50 @@ function App() {
  
 // ?...........................................................List out the serch...................................................................
 
-    const inputs=(input)=>{
-      if(!(input.length===0)){
-        let val=input.toLowerCase();
+    // const inputs=(input)=>{
+    //   if(!(input.length===0)){
+    //     let val=input.toLowerCase();
         
-        const filterList=heros.filter((item)=>{
-        var HeroName=item.name.toLowerCase();
-        let temp=HeroName.substr(0,val.length);
-        if(temp===val){
-            return item;
-        }        
-    })
-    console.log("length",filterList)
-    setHeros(filterList)
-      }
+    //     const filterList=heros.filter((item)=>{
+    //     var HeroName=item.name.toLowerCase();
+    //     let temp=HeroName.substr(0,val.length);
+    //     if(temp===val){
+    //         return item;
+    //     }        
+    // })
+    // console.log("length",filterList)
+    // setHeros(filterList)
+    //   }
       
-    }
+    // }
+
 
     const herodetail= (id)=>{
-      setHerodetails(heros[id])
+      console.log("i am here in id",id)
+      const getid=id;
+      const heroD=heros.filter((item)=>{
+        var itemid=item.id;
+        if(getid===itemid){
+          return item;
+        }
+      })
+      console.log("hi i am here in array",heroD[0])
+      setHerodetails(heroD[0])
     }
+
+    // const herodetail= (id)=>{
+    //   console.log("hi i am here",heros[id])
+    //   setHerodetails(heros[id])
+    // }
   return (
     <div >
-      {loading && <div className="d-flex justify-content-center align-items-center">
+      {loading && <div className="d-flex justify-content-center align-items-center loader">
         <CircularProgress color="secondary" />
         </div>}
       <Router>
         <Routes>
-          <Route excat path='/' element={!loading && <HeroList heros={heros} herodetail={herodetail} input={inputs}/>
+          <Route excat path='/' element={!loading && <HeroList heros={heros} herodetail={herodetail} 
+          />
         }/>
           <Route excat path='/detail' element={<Detail name={herodetails.name} 
           id={herodetails.id} paths={herodetails.thumbnail} dis={herodetails.description}
@@ -66,15 +82,7 @@ function App() {
         </Routes>
       </Router>
 
-      {/* <form>
-      <input type='text' name="fName" placeholder='write your frist name '></input>
 
-      <input type='text' name="lName" placeholder='write your last name '></input>
-
-      <input type='email' name="email" placeholder='write your email name '></input>
-      <button type='submit'>Sign In</button>
-
-      </form> */}
     </div>
   );
 }
