@@ -29,22 +29,6 @@ function App() {
  
 // ?...........................................................List out the serch...................................................................
 
-    // const inputs=(input)=>{
-    //   if(!(input.length===0)){
-    //     let val=input.toLowerCase();
-        
-    //     const filterList=heros.filter((item)=>{
-    //     var HeroName=item.name.toLowerCase();
-    //     let temp=HeroName.substr(0,val.length);
-    //     if(temp===val){
-    //         return item;
-    //     }        
-    // })
-    // console.log("length",filterList)
-    // setHeros(filterList)
-    //   }
-      
-    // }
 
 
     const herodetail= (id)=>{
@@ -60,10 +44,7 @@ function App() {
       setHerodetails(heroD[0])
     }
 
-    // const herodetail= (id)=>{
-    //   console.log("hi i am here",heros[id])
-    //   setHerodetails(heros[id])
-    // }
+  
   return (
     <div >
       {loading && <div className="d-flex justify-content-center align-items-center loader">
